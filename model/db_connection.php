@@ -2,7 +2,8 @@
 
 
 include_once('settings.php');
- class updateMainModel extends PDO { 
+ 
+class updateMainModel extends PDO { 
     
     private $engine; 
     private $host; 
