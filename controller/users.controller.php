@@ -17,14 +17,14 @@ class UsersController extends MainController {
     }
 
     function create (){
-        $package = array();
+        $user = array();
         foreach($this->fields as $key => $field){
             if(!empty(filter_input(INPUT_POST,$key))){
-              $package[$key] = filter_input(INPUT_POST,$key);    
+              $user[$key] = filter_input(INPUT_POST,$key);    
             }
         }
-        if($this->submit_validate($this->fields, $package)){
-         $this->users_model->create($package);   
+        if($this->submit_validate($this->fields, $user)){
+         $this->users_model->create($user);   
         }
         
     }
@@ -39,14 +39,14 @@ class UsersController extends MainController {
     }
     
     function update(){
-        $package = array();
+        $user = array();
         foreach($this->fields as $key => $field){
             if(!empty(filter_input(INPUT_POST,$key))){
-              $package[$key] = filter_input(INPUT_POST,$key);    
+              $user[$key] = filter_input(INPUT_POST,$key);    
             }
         }
-        if($this->submit_validate($this->fields, $package)){
-         $this->users_model->update($package);   
+        if($this->submit_validate($this->fields, $user)){
+         $this->users_model->update($user);   
         }
     }
     
@@ -89,16 +89,19 @@ class UsersController extends MainController {
 
  
     function delete (){
-	$action = filter_input(INPUT_GET,'action');
-	$type = filter_input(INPUT_GET,'type');
-	$user_id = filter_input(INPUT_GET,'id');
-	if($action=='delete' && $type == 'user' && !empty($user_id)){
-		$this->users_model->delete($user_id);
-                header('Location: users.php?list=users');
-	}
+	   $action = filter_input(INPUT_GET,'action');
+	   $type = filter_input(INPUT_GET,'type');
+	   $user_id = filter_input(INPUT_GET,'id');
+	   if($action=='delete' && $type == 'user' && !empty($user_id)){
+		  $this->users_model->delete($user_id);
+          header('Location: users.php?list=users');
+	   }
         
     }
     
+
+
+
     
     
 }

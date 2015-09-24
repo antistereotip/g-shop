@@ -45,16 +45,16 @@ class UsersModel extends updateMainModel {
 	   return $q->fetchAll();
     }
     
-    public function create($package){
-	   if(empty($package))
+    public function create($user){
+	   if(empty($user))
 	   return false;
 	   $sql = "INSERT INTO eusers (username, password, email) VALUES (:username, :password, :email)";
             try {
             $q = $this->prepare($sql);
             $q->execute(array(
-		      ':username'=> $package['username'], 
-		      ':password'=> $package['password'], 
-                ':email'=> $package['email']
+		      ':username'=> $user['username'], 
+		      ':password'=> $user['password'], 
+              ':email'=> $user['email']
             )
             );
         return;
@@ -72,14 +72,14 @@ class UsersModel extends updateMainModel {
         return $q->execute();
     }
 	
-    public function update($package) {
+    public function update($user) {
         $sql= "UPDATE eusers SET username = :username, password = :password, email = :email WHERE user_id = :user_id";
         $q = $this->prepare($sql);
-	    $q->bindParam(':username', $package['username'], PDO::PARAM_STR);
-        $q->bindParam(':password', $package['password'], PDO::PARAM_STR);
-        $q->bindParam(':email', $package['email'], PDO::PARAM_STR);
+	    $q->bindParam(':username', $user['username'], PDO::PARAM_STR);
+        $q->bindParam(':password', $user['password'], PDO::PARAM_STR);
+        $q->bindParam(':email', $user['email'], PDO::PARAM_STR);
            
-        $q->bindParam(':user_id', $package['user_id'], PDO::PARAM_INT);
+        $q->bindParam(':user_id', $user['user_id'], PDO::PARAM_INT);
         $q->execute();
     }
         

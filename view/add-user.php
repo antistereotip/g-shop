@@ -38,8 +38,8 @@ $fields = array(
 <div>
     <div>
 	<?php 
-	$package_form = new EshopUpdateForm;
-        $package_form->render_form( $fields , array('method' => 'post'));			
+	$user_form = new EshopUpdateForm;
+        $user_form->render_form( $fields , array('method' => 'post'));			
         ?>
     </div>
 </div>
