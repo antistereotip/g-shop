@@ -25,7 +25,7 @@ $list = $data['result'];
     echo '<td>' . $item['password'] . '</td>'; 
     echo '<td>' . $item['email'] . '</td>';    
     echo '<td width=250>';
-	echo '<a class="btn" href="users-list.php?id='.$item['user_id'].'">Read</a>';
+	echo '<a class="btn" href="users.php?id='.$item['user_id'].'">Read</a>';
     echo '&nbsp;';
     echo '<a class="btn btn-success" href="users.php?edit=user&id='.$item['user_id'].'">Update</a>';
 	echo '&nbsp;';
